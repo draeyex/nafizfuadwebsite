@@ -3,110 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nafiz Fuad | Architect Portfolio</title>
+    <title>NAFIZ FUAD | Architect Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
     <style>
-        /* --- CSS STYLES --- */
         :root {
-            --bg-color: #ffffff;
-            --text-color: #111111;
-            --gray: #777777;
+            --primary: #111;
+            --secondary: #777;
+            --bg: #ffffff;
+            --border: #eeeeee;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.5;
+            background-color: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
-
-        a { text-decoration: none; color: inherit; }
 
         /* Navigation */
         nav {
+            padding: 40px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            position: sticky;
-            top: 0;
-            background: rgba(255,255,255,0.95);
-            z-index: 100;
+            border-bottom: 1px solid var(--border);
         }
 
-        .logo { font-size: 1.2rem; font-weight: 600; letter-spacing: -0.5px; text-transform: uppercase; }
-        .menu a { margin-left: 30px; font-size: 0.9rem; color: var(--gray); transition: 0.3s; }
-        .menu a:hover { color: var(--text-color); }
+        .logo { font-weight: 600; font-size: 1.1rem; letter-spacing: 1px; text-transform: uppercase; }
+        .nav-links a { margin-left: 30px; text-decoration: none; color: var(--secondary); font-size: 0.9rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
 
         /* Hero Section */
-        .hero {
-            padding: 100px 8%;
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+        .hero { padding: 100px 6% 60px 6%; }
+        .hero h1 { font-size: clamp(2rem, 5vw, 4rem); font-weight: 300; line-height: 1.2; margin-bottom: 20px; }
+        .hero p { color: var(--secondary); max-width: 600px; font-size: 1.1rem; }
 
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
+        /* Project Grid */
+        .projects { padding: 40px 6%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+        
+        .project-item { margin-bottom: 40px; text-decoration: none; color: inherit; display: block; }
+        .img-container { width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #f9f9f9; margin-bottom: 15px; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.6s ease; }
+        .project-item:hover img { filter: grayscale(0%); transform: scale(1.03); }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 500px;
-        }
-
-        /* Projects Grid */
-        .projects { padding: 50px 8%; }
-        .section-title { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 4px;
-            filter: grayscale(100%);
-            transition: filter 0.4s ease;
-            background-color: #f0f0f0;
-        }
-
-        .project-card:hover img { filter: grayscale(0%); }
-
-        .info { margin-top: 15px; }
-        .info h3 { font-size: 1.1rem; font-weight: 500; }
-        .info span { font-size: 0.85rem; color: var(--gray); }
-
-        /* Contact */
-        .contact { padding: 100px 8%; text-align: center; }
-        .email-btn {
-            font-size: 2rem;
-            border-bottom: 2px solid #000;
-            padding-bottom: 5px;
-            transition: 0.3s;
-        }
-        .email-btn:hover { color: var(--gray); border-color: var(--gray); }
+        .project-meta { display: flex; justify-content: space-between; align-items: flex-start; }
+        .project-title { font-size: 1rem; font-weight: 500; text-transform: uppercase; }
+        .project-info { font-size: 0.85rem; color: var(--secondary); text-align: right; }
 
         /* Footer */
-        footer { padding: 40px 8%; text-align: center; font-size: 0.8rem; color: var(--gray); border-top: 1px solid #f0f0f0; }
+        footer { padding: 60px 6%; border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--secondary); display: flex; justify-content: space-between; }
 
-        /* Mobile */
-        @media (max-width: 600px) {
-            .hero { height: auto; padding: 100px 8%; }
+        @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -114,54 +68,45 @@
 
     <nav>
         <div class="logo">NAFIZ FUAD.</div>
-        <div class="menu">
-            <a href="#work">Work</a>
-            <a href="#contact">Contact</a>
+        <div class="nav-links">
+            <a href="#">PROJECTS</a>
+            <a href="#">INFO</a>
+            <a href="#">CONTACT</a>
         </div>
     </nav>
 
     <section class="hero">
-        <h1>Minimalist<br>Architecture &<br>Design.</h1>
-        <p>Hi, I am Nafiz. I design spaces that focus on light, form, and functionality.</p>
+        <h1>Architecture is the<br>thought of space.</h1>
+        <p>Portfolio of Nafiz Fuad — Focusing on contextual relevance, human-centric design, and sustainable innovation in Bangladesh.</p>
     </section>
 
-    <section id="work" class="projects">
-        <div class="section-title">Selected Projects</div>
-        
+    <section class="projects">
         <div class="grid">
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="House 1">
-                <div class="info">
-                    <h3>The White Residence</h3>
-                    <span>Residential — Dhaka</span>
+            <a href="#" class="project-item">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200" alt="Residence">
                 </div>
-            </div>
+                <div class="project-meta">
+                    <div class="project-title">Bhuiyan Nibash</div>
+                    <div class="project-info">Residential / Dhaka<br>2024</div>
+                </div>
+            </a>
 
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1558485292-62a26514787a?q=80&w=1000&auto=format&fit=crop" alt="Interior">
-                <div class="info">
-                    <h3>Modern Studio Loft</h3>
-                    <span>Interior — Chittagong</span>
+            <a href="#" class="project-item">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1200" alt="Office">
                 </div>
-            </div>
-
-            <div class="project-card">
-                <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=1000&auto=format&fit=crop" alt="Building">
-                <div class="info">
-                    <h3>Urban Complex</h3>
-                    <span>Commercial — Sylhet</span>
+                <div class="project-meta">
+                    <div class="project-title">Apple Gadgets HQ</div>
+                    <div class="project-info">Commercial / Dhaka<br>2023</div>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <p style="margin-bottom: 20px; color: #888;">HAVE A PROJECT IN MIND?</p>
-        <a href="mailto:nafiz@example.com" class="email-btn">Get in touch</a>
-    </section>
-
     <footer>
-        &copy; 2026 Nafiz Fuad Architecture.
+        <div>© 2015 - 2026 NAFIZ FUAD ARCHITECTS.</div>
+        <div>DHAKA, BANGLADESH</div>
     </footer>
 
 </body>
